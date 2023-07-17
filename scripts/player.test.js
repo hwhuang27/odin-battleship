@@ -29,7 +29,6 @@ test('Not allowed to hit same coordinate twice', () => {
     const player = new Player();
     const npc = new Player();
 
-    player.placeShip(2, 'horizontal', [2, 2]);
     npc.placeShip(2, 'horizontal', [2, 2]);
 
     player.attackOpponent([2, 2], npc.board);
@@ -38,5 +37,17 @@ test('Not allowed to hit same coordinate twice', () => {
     expect(() => {
         player.attackOpponent([2, 2], npc.board);
     }).toThrow('Already attacked this spot, try again.');
+})
+
+test('Computer generates an exhaustive turn list', () => {
+    const player = new Player();
+    const npc = new Player();
+    
+    expect(npc.turnList).toHaveLength(100);
+    expect(() => {
+        for (let index = 0; index < 100; index++) {
+            npc.attackOpponent(npc.generateTurn(), player.board);
+        }
+    }).not.toThrow();
 })
 
