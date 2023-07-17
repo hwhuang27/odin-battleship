@@ -3,6 +3,9 @@ import Ship from './ship.js';
 class Gameboard{
     constructor(){
         this.board = this.initializeBoard();
+        this.missedAttacks = [];
+        this.hitAttacks = [];
+        this.ships = [];
     }
 
     initializeBoard(){
@@ -13,7 +16,9 @@ class Gameboard{
         return board;
     }
 
-    placeShip(length, orientation, row, col){
+    placeShip(length, orientation, coordinates){
+        const [row, col] = coordinates;
+
         if ((length + col) > 10 || (length + row) > 10){
             throw new Error('Ship cannot fit onto board');
         }
@@ -36,9 +41,11 @@ class Gameboard{
                 }
             }        
             for (let index = 0; index < ship.length; index++) {
-                this.board[row + index][col] = 1;
+                this.board[row + index][col] = ship;
             }
         }
+
+        this.ships.push(ship);
     }
 
     occupied(row, col){
@@ -48,13 +55,33 @@ class Gameboard{
         return false;
     }
 
-    receiveAttack(){
-        
+    receiveAttack(coordinates){
+        const [row, col] = coordinates;
+
+        if(this.occupied(row, col)){
+            this.board[row][col].hit();
+            this.hitAttacks.push(coordinates);
+        }
+        else{
+            this.missedAttacks.push(coordinates);
+        }
     }
+
+    allShipsSunk(){
+        let result = true;
+        this.ships.forEach(ship => {
+            if(!ship.isSunk()){
+                result = false;
+            }
+        });
+        return result;
+    }
+
 }
 
 // const gameboard = new Gameboard();
 // gameboard.placeShip(2, 'horizontal', 2, 2);
+// gameboard.placeShip(2, 'vertical', 3, 3);
 // console.table(gameboard.board);
 
 export default Gameboard;
