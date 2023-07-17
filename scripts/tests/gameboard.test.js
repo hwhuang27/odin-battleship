@@ -1,4 +1,4 @@
-import Gameboard from './gameboard.js';
+import Gameboard from '../gameboard.js';
 
 test('Create Ship and place onto board', () => {
     const gameboard = new Gameboard();

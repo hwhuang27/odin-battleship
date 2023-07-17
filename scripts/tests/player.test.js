@@ -1,4 +1,4 @@
-import Player from './player.js';
+import Player from '../player.js';
 
 test('Place ships', () => {
     const player = new Player();
@@ -42,7 +42,7 @@ test('Not allowed to hit same coordinate twice', () => {
 test('Computer generates an exhaustive turn list', () => {
     const player = new Player();
     const npc = new Player();
-    
+
     expect(npc.turnList).toHaveLength(100);
     expect(() => {
         for (let index = 0; index < 100; index++) {
@@ -50,4 +50,6 @@ test('Computer generates an exhaustive turn list', () => {
         }
     }).not.toThrow();
 })
+
+
 

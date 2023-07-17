@@ -1,4 +1,4 @@
-import Ship from './ship.js';
+import Ship from '../ship.js';
 
 test('Create ship object with correct properties', () => {
     const newShip = new Ship(3);
