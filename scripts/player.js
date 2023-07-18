@@ -54,8 +54,11 @@ class Player{
             array[rand] = oldElement;
         }
         return array;
-    } 
+    }
 
+    allSunk(){
+        return this.board.allShipsSunk();
+    }
 }
 
 export default Player;
