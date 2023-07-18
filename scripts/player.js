@@ -16,7 +16,7 @@ class Player{
             throw new Error('Already attacked this spot, try again.');
         }
         else{
-            oppBoard.receiveAttack(coordinates);
+            return oppBoard.receiveAttack(coordinates);
         }
     }
 

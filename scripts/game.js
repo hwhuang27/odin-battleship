@@ -1,16 +1,19 @@
+import Player from './player.js';
+import { setupDefaultShips, generatePlayerGrid, generateNPCGrid, renderShips } from './display.js';
 
-function defaultShipSetup(player, npc){
-    player.placeShip(2, 'horizontal', [1, 1]);
-    player.placeShip(3, 'horizontal', [3, 1]);
-    player.placeShip(3, 'horizontal', [5, 1]);
-    player.placeShip(4, 'horizontal', [7, 1]);
-    player.placeShip(5, 'horizontal', [9, 1]);
+const player = new Player();
+const npc = new Player();
 
-    npc.placeShip(2, 'vertical', [1, 1]);
-    npc.placeShip(3, 'vertical', [1, 3]);
-    npc.placeShip(3, 'vertical', [1, 5]);
-    npc.placeShip(4, 'vertical', [1, 7]);
-    npc.placeShip(5, 'vertical', [1, 9]);
-}
+const player_board = player.board.board;
+const npc_board = npc.board.board;
 
-export {defaultShipSetup};
+const player_grid = document.querySelector('.player-grid');
+const npc_grid = document.querySelector('.npc-grid');
+
+setupDefaultShips(player, npc);
+
+generatePlayerGrid(player_grid);
+generateNPCGrid(npc_grid);
+
+renderShips(player_board, 'player');
+renderShips(npc_board, 'npc');

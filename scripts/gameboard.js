@@ -62,9 +62,11 @@ class Gameboard{
         if(this.occupied(row, col)){
             this.board[row][col].hit();
             this.hitAttacks.push(coordinates);
+            return 'hit';
         }
         else{
             this.missedAttacks.push(coordinates);
+            return 'missed';
         }
     }
 

@@ -24,7 +24,7 @@ h1{
     display: flex;
     justify-content: space-evenly;
     gap: 64px;
-    margin: 0 64px;
+    margin: 0 32px;
 }
 
 .container{
@@ -44,4 +44,19 @@ h1{
 
 .cell{
     border: 1px solid black;
+}
+
+.ship-cell{
+    background-color: #94a3b8;
+}
+
+.hover-cell{
+    background-color: #e2e8f0;
+}
+
+.missed-cell{
+    background-color: #86efac;
+}
+.hit-cell{
+    background-color: #fda4af;
 }
