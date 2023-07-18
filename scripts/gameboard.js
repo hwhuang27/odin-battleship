@@ -19,7 +19,8 @@ class Gameboard{
     placeShip(length, orientation, coordinates){
         const [row, col] = coordinates;
 
-        if ((length + col) > 10 || (length + row) > 10){
+        if (((length + col) > 10 && orientation === 'horizontal') || 
+            ((length + row) > 10 && orientation === 'vertical')){
             throw new Error('Ship cannot fit onto board');
         }
 

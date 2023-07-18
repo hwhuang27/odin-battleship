@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Montserrat:wght@100;300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #e2e8f0;
+}
+
+h1{
+    font-family: 'Chelsea Market', cursive;
+    font-size: 64px;
+    font-weight: 100;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 48px;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 64px;
+    margin: 0 64px;
+}
+
+.container{
+    display: inline-grid;
+    border: 2px solid black;
+    grid-gap: 1px;
+    background-color: black;
+}
+
+.player-grid, .npc-grid{
+    display: grid;
+    grid-template-columns: repeat(10, 36px);
+    grid-template-rows: repeat(10, 36px);
+    justify-content: center;
+    background: white;
+}
+
+.cell{
+    border: 1px solid black;
+}
