@@ -13,3 +13,5 @@ JavaScript practice project for [The Odin Project](https://www.theodinproject.co
 - Jest
 
 ## 📷 Screenshots 📷
+
+![alt text](https://raw.githubusercontent.com/hwhuang27/odin-battleship/main/public/index.png)
