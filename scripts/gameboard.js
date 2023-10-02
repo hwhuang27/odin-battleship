@@ -79,12 +79,6 @@ class Gameboard{
         });
         return result;
     }
-
 }
-
-// const gameboard = new Gameboard();
-// gameboard.placeShip(2, 'horizontal', 2, 2);
-// gameboard.placeShip(2, 'vertical', 3, 3);
-// console.table(gameboard.board);
 
 export default Gameboard;

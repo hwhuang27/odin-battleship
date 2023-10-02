@@ -16,7 +16,7 @@ h1{
     letter-spacing: 0.2rem;
     text-align: center;
     margin-top: 24px;
-    margin-bottom: 40px;
+    margin-bottom: 8px;
 }
 
 h2{
@@ -55,14 +55,22 @@ h2{
 .btn{
     margin-top: 16px;
     padding: 8px 16px;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 500;
     border-radius: 8px;
     border: 2px solid black;
     transition: all 0.1s ease-in-out;
 }
+.refresh {
+    background-color: #93c5fd;
+}
 
-.start{
+.refresh:hover {
+    background-color: #60a5fa;
+    scale: 1.1;
+}
+
+/* .start{
     background-color: #86efac;
 }
 .start:hover{
@@ -75,15 +83,7 @@ h2{
 .reset:hover{
     background-color: #fb7185;
     scale: 1.1;
-}
-
-.auto-place{
-    background-color: #93c5fd;
-}
-.auto-place:hover{
-    background-color: #60a5fa;
-    scale: 1.1;
-}
+} */
 
 .player-grid, .npc-grid{
     display: grid;
@@ -102,12 +102,12 @@ h2{
 }
 
 .hover-cell{
-    background-color: #e2e8f0;
+    background-color: #cbd5e1;
 }
 
 .missed-cell{
-    background-color: #86efac;
+    background-color: #4ade80;
 }
 .hit-cell{
-    background-color: #fda4af;
+    background-color: #fb7185;
 }

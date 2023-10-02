@@ -1,17 +1,57 @@
-function setPlayerShips(player, npc) {
-    player.placeShip(2, 'vertical', [7, 5]);
-    player.placeShip(3, 'vertical', [6, 2]);
-    player.placeShip(3, 'horizontal', [4, 4]);
-    player.placeShip(4, 'horizontal', [2, 1]);
-    player.placeShip(5, 'vertical', [4, 8]);
+function setPlayerShips(player) {
+    randomizeShips(player);
+    console.log('generated player ship locations');
 }
 
 function setNPCShips(npc){
-    npc.placeShip(2, 'horizontal', [0, 0]);
-    npc.placeShip(3, 'vertical', [4, 4]);
-    npc.placeShip(3, 'vertical', [6, 7]);
-    npc.placeShip(4, 'vertical', [5, 1]);
-    npc.placeShip(5, 'horizontal', [1, 4]);
+    randomizeShips(npc);
+    console.log('generated npc ship locations');
+}
+
+function randomizeShips(me){
+    let shipCount = 0;
+    let count = 0;
+    const randomInt = (int) => Math.floor(Math.random() * (9 - int));
+    const coinFlip = () => Math.random() < 0.5;
+    while (true) {
+        try {
+            if (count > 1000) break;
+            if (shipCount === 5) break;
+
+            if (shipCount === 0) {
+                try {
+                    me.placeShip(5, coinFlip() ? 'vertical' : 'horizontal', [randomInt(4), randomInt(4)]);
+                    shipCount += 1;
+                } catch (error) {
+                    console.log('ship size 5 failed');
+                }
+            } else if (shipCount === 1) {
+                try {
+                    me.placeShip(4, coinFlip() ? 'vertical' : 'horizontal', [randomInt(3), randomInt(3)]);
+                    shipCount += 1;
+                } catch (error) {
+                    console.log('ship size 4 failed');
+                }
+            } else if (shipCount === 2 || shipCount === 3) {
+                try {
+                    me.placeShip(3, coinFlip() ? 'vertical' : 'horizontal', [randomInt(2), randomInt(2)]);
+                    shipCount += 1;
+                } catch (error) {
+                    console.log('ship size 3 failed');
+                }
+            } else if (shipCount === 4) {
+                try {
+                    me.placeShip(2, coinFlip() ? 'vertical' : 'horizontal', [randomInt(1), randomInt(1)]);
+                    shipCount += 1;
+                } catch (error) {
+                    console.log('ship size 2 failed');
+                }
+            }
+            count += 1;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 function generatePlayerGrid(grid) {
@@ -56,7 +96,7 @@ function generateNPCGrid(grid, player, npc) {
                     newCell.classList.toggle('missed-cell');
                 }
                 if (npc.allSunk() === true){
-                    if (!alert('You win!')) { window.location.reload(); }
+                    if (!alert('🎉 YOU WIN! 🎉')) { window.location.reload(); }
                 }
 
                 [row, col] = npc.generateTurn();
@@ -97,4 +137,5 @@ export {
     setNPCShips, 
     generatePlayerGrid, 
     generateNPCGrid, 
-    renderShips };
+    renderShips,
+};
