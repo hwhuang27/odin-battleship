@@ -1,7 +1,6 @@
 import Player from './player.js';
 import { setPlayerShips, setNPCShips, generatePlayerGrid, generateNPCGrid, renderShips} from './display.js';
 
-// initialize buttons
 const refreshButton = document.querySelector('.refresh');
 
 // initialize players

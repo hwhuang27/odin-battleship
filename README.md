@@ -11,3 +11,5 @@ JavaScript practice project for [The Odin Project](https://www.theodinproject.co
 - HTML 
 - CSS
 - Jest
+
+## 📷 Screenshots 📷
